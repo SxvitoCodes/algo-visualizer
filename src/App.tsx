@@ -1,11 +1,12 @@
-import './App.css'
+import "./App.css";
+import DrawArray from "./render/drawArray";
 
 function App() {
   return (
     <>
-      <h1 className='text-blue-700'>Test Tailwind</h1>
+      <DrawArray />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
