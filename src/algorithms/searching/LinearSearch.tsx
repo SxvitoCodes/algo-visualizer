@@ -1,19 +1,20 @@
-import Mark from "../../helpers/Mark";
+import type React from "react";
+import type { MarkColor } from "../../App";
 
-function linearSearch(array: number[], target: number) {
-  const elements = document.getElementsByClassName("array-bar") as HTMLCollectionOf<HTMLElement>;
-
+function linearSearch(
+  array: number[],
+  target: number,
+  setMarks: React.Dispatch<React.SetStateAction<Record<number, MarkColor>>>,
+  delayMs = 10
+) {
   for (let i = 0; i < array.length; i++) {
-    if (target === array[i]) {
-      setTimeout(() => {
-        Mark(elements[i], 'green');
-      }, i*10);
-      return;
-    } else {
-      setTimeout(() => {
-        Mark(elements[i], 'red');
-      }, i*10);
-    }
+    const color: MarkColor = array[i] === target ? "green" : "red";
+
+    setTimeout(() => {
+      setMarks((prev) => ({ ...prev, [i]: color }));
+    }, delayMs);
+
+    if (array[i] === target) return;
   }
 }
 
