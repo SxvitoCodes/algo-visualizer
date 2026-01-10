@@ -8,11 +8,11 @@ function linearSearch(
   delayMs = 10
 ) {
   for (let i = 0; i < array.length; i++) {
+    setTimeout(() => {
     const color: MarkColor = array[i] === target ? "green" : "red";
 
-    setTimeout(() => {
       setMarks((prev) => ({ ...prev, [i]: color }));
-    }, delayMs);
+    }, i*delayMs);
 
     if (array[i] === target) return;
   }

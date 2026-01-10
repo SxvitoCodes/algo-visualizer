@@ -8,6 +8,7 @@ export type MarkColor = "white" | "red" | "green";
 function App() {
   const [array, setArray] = useState<number[]>([]);
   const [marks, setMarks] = useState<Record<number, MarkColor>>([]);
+  const [speed, setSpeed] = useState<number>(10);
 
   return (
     <>
@@ -17,6 +18,8 @@ function App() {
         setArray={setArray}
         marks={marks}
         setMarks={setMarks}
+        speed={speed}
+        setSpeed={setSpeed}
       />
     </>
   );
